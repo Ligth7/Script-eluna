@@ -2,9 +2,9 @@
 
 El script tiene como objetivo, dar su set inicial para que puedan equiparse, esto sirve para los Mestros de Juego super al nivel 0. También puedes cambiar y editar este script según lo que deseas editar.
 
-![Mensaje que saldra si no eres Mestro de Juego](https://prnt.sc/TfJq7H-7gKfO)
+![Mensaje que saldra si no eres Mestro de Juego](https://i.postimg.cc/vT0Wqhyw/Screenshot-5.png)
 
-![Los Items que te dara en juego al introducir el comando "setgm"](https://prnt.sc/e16bslLreHVB)
+![Los Items que te dara en juego al introducir el comando "setgm"](https://i.postimg.cc/J47xND8W/Screenshot-4.png)
 
 **ITEMS QUE TE DARA EL COMANDO**
 - [x]  [Caña de Ingeniosa]
