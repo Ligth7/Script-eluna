@@ -4,11 +4,11 @@ El script fue realizado para bloquear palabras obsenas, publicidad de otros serv
 
 ![Mensaje que saldra al escribir la palabra prohibida](https://i.postimg.cc/hPtZfCfm/Screenshot-7.png)
 
-```***Mensaje que te saldra cada vez que escribas un mensaje prohibido***```
+```Mensaje que te saldra cada vez que escribas un mensaje prohibido```
 
 ![expulsion del servidor](https://i.postimg.cc/g02VG04b/Screenshot-8.png)
 
-```***Expulsion del servidor si envias >= a 3 veces los mensajes prohibidos***```
+```Expulsion del servidor si envias >= a 3 veces los mensajes prohibidos```
 
 **MENSAJES QUE BLOQUEA EL SCRIPT**
 - [x]  [Palabras groseras]
