@@ -1,6 +1,6 @@
 # 📜 Comando GM: `setgm`
 
-Este script permite a los **Maestros de Juego (GM)** de **rango 2 o superior** entregar un set inicial de ítems a otro jugador mediante el comando en el juego: `setgm`. 
+Este script permite a los **Maestros de Juego (GM)** de **rango 2 o superior** entregar un set inicial de ítems a otro jugador mediante el comando en el juego: `.setgm`
 
 Es útil para preparar a un personaje GM con el equipo necesario para pruebas, administración o demostraciones.
 
