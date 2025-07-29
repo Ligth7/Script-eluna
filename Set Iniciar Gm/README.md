@@ -19,13 +19,13 @@ Es útil para preparar a un personaje GM con el equipo necesario para pruebas, a
 
 Al usar el comando correctamente, se entregan los siguientes ítems al jugador seleccionado:
 
-- 🎣 **[43651]** Caña Ingeniosa
-- 🎩 **[12064]** Caperuza de Maestro de Juego
-- 🎽 **[2586]** Toga de Maestro de Juego
-- 👟 **[11508]** Zapatillas de Maestro de Juego
-- ⚔️ **[18582]** Espada Martin Furia
-- 🪄 **[192]** Bastón de Martin roto
-- 🎒 **[23162]** *x4* Bolsas grandes (36 casillas)
+- [x]  [Caña de Ingeniosa]
+- [x]  [Caperuza de Maestro de Juego]
+- [x]  [Toga de Maestro de Juego]
+- [x]  [Zapatillas de Maestro de Juego]
+- [x]  [Martin Furia]
+- [x]  [Bastón de Martin roto]
+- [x]  [Foror's Crate of Endless Resist Gear Storage] x4
 
 ---
 
