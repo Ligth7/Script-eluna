@@ -1,55 +1,67 @@
 --[[
 ╔══════════════════════════════════════════╗
-║         Información de Script            ║
+║             Script Info                  ║
 ╠══════════════════════════════════════════╣
 ║- Creado por: Ligth.                      ║
-║- Contribuidor(s): Developer              ║
-║- Completo: 75/100 %                         ║
-║- Nombre de Script: Comando_Buff          ║
-║- Descripción: Con este comando #buff     ║
-║  podras darte todos los buffos ...       ║                                 
+║- Revisado y Mejorado por: Yaniel         ║
+║- Completo: 100%                          ║
+║- Nombre de Script: Comando_Buff_Mejorado ║
+║- Descripción: Este script permite a los  ║
+║  jugadores recibir buffs usando el       ║
+║  comando #buff, con buffs extra para GMs.║
 ╚══════════════════════════════════════════╝
 --]]
 
-local GMRango = 2 -- Los rangos que podrán acceder a buffos extras.
-local function Buffcommand(event, player, msg, Type, lang)
-	if(msg == "#buff") then  -- Comando que se utilizara en el juego.
-        player:CastSpell(player, 15366, true) -- (Jugador, hechizo, Si es true, el hechizo es instantáneo y no tiene costo.)
-        player:CastSpell(player, 16609, true)
-        player:CastSpell(player, 48162, true)
-        player:CastSpell(player, 48074, true)
-        player:CastSpell(player, 48170, true)
-        player:CastSpell(player, 43223, true)
-        player:CastSpell(player, 36880, true)
-        player:CastSpell(player, 467, true)
-        player:CastSpell(player, 30562, true)
-        player:CastSpell(player, 30567, true)
-        player:CastSpell(player, 30557, true)
-        player:CastSpell(player, 33081, true)
-        player:CastSpell(player, 48469, true)
-        player:SendBroadcastMessage("|cffFF0000¡Has sido Buffeado por el Administrador!") 
-        player:SendNotification("¡Has sido Buffeado por el Administrador!")
-        if(player:GetGMRank() >= GMRango)then -- Los buffos extras que serán para los Maestros de Juego.
-        player:CastSpell(player, 26035, true)
-        player:CastSpell(player, 69994, true)
-        player:CastSpell(player, 35076, true)
-        player:CastSpell(player, 26393, true)
-        player:CastSpell(player, 24425, true)
-        player:CastSpell(player, 53758, true)
-        player:CastSpell(player, 69559, true)
-        player:CastSpell(player, 24705, true)
-        player:CastSpell(player,35874, true)
-        player:CastSpell(player,35912, true)
-        player:CastSpell(player,38734, true)
-        player:CastSpell(player, 23735, true)
-        player:CastSpell(player, 23736, true)
-        player:CastSpell(player, 23737, true)
-        player:CastSpell(player, 23738, true)
-        player:CastSpell(player, 23767, true)
-        player:CastSpell(player, 23768, true)
-        player:CastSpell(player, 23769, true)
-        end
-	end
-	return false;
+-- Rango de GM mínimo requerido para recibir los buffs extra.
+local GM_RANK_REQUIRED = 2 
+
+-- Tabla con los IDs de los hechizos para los buffs estándar.
+local standardBuffs = {
+    -- Buffs generales para todos los jugadores
+    15366, 16609, 48162, 48074, 48170, 43223, 36880, 467, 
+    30562, 30567, 30557, 33081, 48469
+}
+
+-- Tabla con los IDs de los hechizos para los buffs adicionales de Maestros de Juego.
+local gmBuffs = {
+    -- Buffs extra específicamente para GMs
+    26035, 69994, 35076, 26393, 24425, 53758, 69559, 24705, 
+    35874, 35912, 38734, 23735, 23736, 23737, 23738, 23767, 
+    23768, 23769
+}
+
+-- Función de ayuda para aplicar una lista de hechizos a un jugador.
+local function applyBuffs(player, spellTable)
+    for _, spellId in ipairs(spellTable) do
+        player:CastSpell(player, spellId, true)
+    end
 end
+
+-- Función principal para manejar el comando de chat.
+local function Buffcommand(event, player, msg, Type, lang)
+    -- Verifica si el comando es #buff. El mensaje ya está en minúsculas.
+    if msg:lower() == "#buff" then
+        
+        -- Aplica los buffs estándar al jugador.
+        applyBuffs(player, standardBuffs)
+
+        -- Envía notificaciones al jugador y a todo el servidor.
+        player:SendNotification("¡Has recibido un conjunto de buffs básicos!")
+        player:SendBroadcastMessage("|cffFF0000Un jugador ha recibido un conjunto de buffs básicos.")
+        
+        -- Verifica si el rango de GM del jugador es lo suficientemente alto para los buffs extra.
+        if player:GetGMRank() >= GM_RANK_REQUIRED then
+            -- Aplica los buffs extra de GM.
+            applyBuffs(player, gmBuffs)
+            
+            -- Envía notificaciones específicas para el GM.
+            player:SendNotification("¡Has recibido buffs adicionales de GM!")
+            player:SendBroadcastMessage("|cffFFFF00Un GM ha recibido buffs adicionales.")
+        end
+        return true -- Retorna true para evitar que el comando se muestre en el chat.
+    end
+    return false
+end
+
+-- Registra la función al evento de comando de chat (ID de evento 18).
 RegisterPlayerEvent(18, Buffcommand)
